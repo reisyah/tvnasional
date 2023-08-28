@@ -1,126 +1,107 @@
-<html lang="id">
+<!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-<meta name="referrer" content="same-origin">
-  <title>LSBTV - STREAMING GRATIS, GRATIS STREAMING </title>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/gaya.css" />
+<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+<meta name="referrer" content="no-referrer"/>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.3/shaka-player.ui.min.js' crossorigin='anonymous'></script>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/shakacontrol.css' crossorigin='anonymous'/>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/gaya.css' crossorigin='anonymous'/>
+</head>
+<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
+<div id="vidio" data-shaka-player-container style='position:absolute;z-index: -1;top: 0;left: 0;width: 100%; height: 100%;object-fit:fill cover;'>
+	<video autoplay data-shaka-player id='video' poster="https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/poster.jpg" style='width:100%;height:100%;'></video>
+	<div class="shaka-controls-container" shown="true">
+		<div class="shaka-scrim-container"></div>
+		<div class="shaka-play-buton-container">
+			<button class="shaka-play-button shaka-no-propagation" ion="pause" aria-abel="Pause"></button>
+		</div>
+		<div class="shaka-server-side-ad-container"></div>
+		<div class="shaka-bottom-controls shaka-no-propagation">
+			<div class="shaka-ad-controls shaka-hidden">
+				<div class="shaka-ad-position shaka-hidden">
+					<span class="shaka-ad-position-span"></span>
+				</div>
+				<div class="shaka-ad-counter">
+					<span class="shaka-ad-counter-span"></span>
+				</div>
+			</div>
+			<div class="shaka-controls-button-panel shaka-show-controls-on-mouse-over">
+			<img src="https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/logolsbtv.png" style='width:15% ;height:15%;' class="shaka-fullscreen-button material-icons-round shaka-tooltip" aria-label="mute">
+			</div>
+		</div>
+	</div>
+</div>
+	
+<div id='fixedban' style='width:100%;margin:auto;text-align:center;float:none;overflow:hidden;display:scroll;position:;bottom:0;z-index:999;-webkit-transform:translateZ(0);'>
+<div>
+<a id='close-fixedban' onclick='document.getElementById("fixedban").style.display = "none";' style='cursor:pointer;'><img alt='close' src='https://1.bp.blogspot.com/-_A83iDM6JYc/VhtxROLILrI/AAAAAAAADK4/aM4ikIA6aqI/s1600/btn_close.gif' title='close button' style='vertical-align:middle;'/></a></div>
+<div style='text-align:center;display:block;max-width:100%;height:auto;overflow:hidden;margin:auto'>
+		<center>
+		<fieldset class="btn0">
+  <legend class="btn1" >ASPEK RASIO</legend>
+ <button class="btn2" onclick="fill ()">FILL
+  <button class="btn2" onclick="fit ()">FIT
+ <button class="btn2" onclick="zoomIn ()">ZOOM IN
+ <button class="btn2" onclick="zoomOut ()">ZOOM OUT
+ </button>
+   <a href="go:nsassp4" class="btn2" >OPEN NS PLAYER
+ </a>
+</fieldset>
+		  
+		</center>
+	</div>
+		</div>
+</div>
 <script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/fullscreen.js' crossorigin='anonymous'></script>
 <script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/aspekrasio.js' crossorigin='anonymous'></script>
 <script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/popupwindow.js' crossorigin='anonymous'></script>
 <script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/aspekrasio.js' crossorigin='anonymous'>
  </script>
-  <style>
-  .konten-atas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.konten-bawah {
-  position: relative;
-}
+ 
+ 
+ <!-- STOP NYURI GA BAIK -->
 
-  .vidio {
-        margin-top: 0px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
-    }
-            #offline-message {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f1f1f1;
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .container {
-  position: relative;
-}
-
-.overlay {
-  position: relative;
-  top: 0;
-display: flex;
-  justify-content: center;
-  align-items: center;
-}
-}
-.iframe {
-  border: 1px solid #000;
-  border-radius: 10px;
-}
-
-    </style>
-    <script>
-        window.addEventListener('load', function() {
-            var online = navigator.onLine;
-
-            function updateStatus() {
-                var offlineMessage = document.getElementById('offline-message');
-                offlineMessage.style.display = online ? 'none' : 'block';
-            }
-
-            updateStatus();
-
-            window.addEventListener('online', function() {
-                online = true;
-                updateStatus();
-            });
-
-            window.addEventListener('offline', function() {
-                online = false;
-                updateStatus();
-            });
-        });
-    </script>
-</head>
-<body>
-    
-</head>
-<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
-<div class="konten-bawah">
-  <!-- Konten di bawah -->
-
-
-<iframe class="vidio" id="vidio" width="100%" height="100%" margin src="https://reisyah.github.io/player/jwplayer/hls.html?file=http://api.thomasandi.my.id/rplus/index.m3u8?id=4" title="Lsbt" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-<div class="konten-atas">
-  <!-- Konten di atas 
-
-<marquee bgcolor="blue" style="color: white; font-family: arial; font-size: 15px;"> PERHATIAN! Untuk Memilih resolusi Silahkan Klik Tombol Pengaturan/Roda Gir, Di pojok Kanan Bawah, Lalu Pilih Resolution, Dan Pilih Resolusi Sesuai Kemampuan Jaringan! | Dibeberapa device Seringkali gambar ngefreze namun suara tetap jalan, jadi jika ini terjadi kepada anda maka hal yang perlu dilakukan adalah pilih Resolusi jangan di auto | harap aktifkan rotasi layar anda untuk mode full screen! </marquee>
-</div>
--->
-  <div id="offline-message">
-    <h2>OM MAU NGAPAIN OM?🤣</h2>
-    <p>Harap periksa koneksi internet Anda dan coba lagi. Lain Kali Jangan Gitu Ya! Dosa Tau Nyuri Mulu, Langsung Ke Sumbernya Lah Masa Mau Nyuri Disini🗿</p>
-  </div>
-	
-  <script>
-    var iframe = document.getElementById('vidio');
-    var offlineMessage = document.getElementById('offline-message');
-
-    iframe.addEventListener('load', function() {
-      // Fungsi ini akan dipanggil saat iframe selesai dimuat
-
-      // Periksa status koneksi internet
-      var online = navigator.onLine;
-
-      if (!online) {
-        // Tampilkan pesan jika tidak terhubung
-        offlineMessage.style.display = 'block';
-        iframe.style.display = 'none';
+   
+<script> 
+const punya_lsbtv = 'https://live.ferymaleha.workers.dev/linearjitp-playback.astro.com.my/dash-wv/linear/2506/default_ott.mpd';
+async function init() { 
+const video = document.getElementById('video'); 
+const ui = video['ui']; 
+const config = {
+      'seekBarColors': {
+        base: 'blue',
+        buffered: 'red',
+        played: 'yellow',
       }
-    });
-
-    // Periksa status koneksi saat memuat halaman
-    var online = navigator.onLine;
-
-    if (!online) {
-      // Tampilkan pesan jika tidak terhubung
-      offlineMessage.style.display = 'block';
-      iframe.style.display = 'none';
     }
-  </script>
+   ui.configure(config);
+const controls = ui.getControls(); 
+const player = controls.getPlayer(); 
+player.configure({
+  drm: {
+    clearKeys: {
+      // 'key-id-in-hex': 'key-in-hex',
+      '79f4028730acca9ab8b00f26158ddb10': '91febe843c08c7cc523efd827292e40e'
+
+    }
+  }
+});
+//player.configure({drm:{servers:{'com.widevine.alpha':'https://license.dstv.com/widevine/getLicense?CrmId=afl&AccountId=afl&ContentId=SH2&SessionId=D3C00F885C24B9C6&Ticket=C839A8D71AB94299'}}}); 
+player.configure('manifest.dash.ignoreMinBufferTime', true);
+player.configure('streaming.rebufferingGoal', 1 /* second */);
+window.player = player; 
+window.ui = ui; 
+
+player.addEventListener('error', onPlayerErrorEvent); 
+controls.addEventListener('error', onUIErrorEvent); 
+try{await player.load(punya_lsbtv); 
+console.log('The video has now been loaded!');} catch (error) {onPlayerError(error);}} 
+function onPlayerErrorEvent(errorEvent) {onPlayerError(event.detail);} 
+function onPlayerError(error) {console.error('Error code', error.code, 'object', error);} 
+function onUIErrorEvent(errorEvent) {onPlayerError(event.detail);} 
+function initFailed(errorEvent) {console.error('Unable to load the UI library!');} 
+document.addEventListener('shaka-ui-loaded', init); 
+document.addEventListener('shaka-ui-load-failed', initFailed); 
+</script>
+
+</html>
